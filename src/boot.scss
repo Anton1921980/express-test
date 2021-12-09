@@ -1,0 +1,139 @@
+@import "~bootstrap/scss/bootstrap";
+body{
+    box-sizing: border-box;
+}
+h1 {
+    font-weight: 800 !important;
+    font-size  : 56px !important;
+}
+
+h2 {
+    color      : #018FDE;
+    font-weight: 800 !important;
+    font-size  : 28px !important;
+
+}
+
+li {
+    list-style: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #8792A7 !important;
+}
+
+.nav-link>span {
+    color: black;
+}
+
+.nav-link.active>span {
+    color: #018FDE;
+}
+
+// .nav>.nav-link {}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: black !important;
+}
+
+// .navbar-nav:first-child {
+//     color: red !important
+// }
+
+.dropdown-menu {
+    border    : none !important;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.04);
+
+    & a {
+        color: grey;
+    }
+}
+
+
+.call{
+    position  : relative;
+}
+.call_us {
+    width     : 95px;
+    height    : 40px;
+    border    : 1px solid #121212;
+    box-sizing: border-box;
+    position  : relative;
+    background-color: white;
+
+    
+  
+}
+.us{
+    position  : absolute;
+    left      : -4.04%;
+    top       : 9.09%;
+    bottom    : 0%;
+    width     : 95px;
+    height    : 40px;
+    border    : 1px solid #121212;
+    box-sizing: border-box;
+}
+.consultation {
+    font-size  : 14px;
+    font-weight: 500;
+    width      : 211px;
+    height     : 40px;
+    border     : 1px solid #121212;
+    box-sizing : border-box;
+    position   : relative;
+    background : #121212;
+
+
+    & span {
+        color: white;
+    }
+
+    & div {
+        position  : absolute;
+        right     : 0%;
+        left      : -1.86%;
+        top       : 9.09%;
+        bottom    : -9.09%;
+        border    : 1px solid #121212;
+        box-sizing: border-box;
+    }
+}
+
+.call_us.active>span {
+    color: #8792A7;
+}
+
+.form-control {
+    font-size    : 14px !important;
+    font-weight  : 500 !important;
+    background   : #EEF3FC !important;
+    border       : none;
+    border       : 1px solid transparent !important;
+    border-radius: 0 !important;
+
+    &:focus {
+        box-shadow: none !important;
+        background: none !important;
+
+        border-color: #8792A7 !important;
+
+    }
+}
+
+.form-select {
+    font-family: 'vector' !important;
+}
+
+.navbar-toggler {
+    border-color: transparent !important;
+    box-shadow  : transparent !important;
+
+    &:focus {
+        box-shadow: 0 0 0 0 !important;
+    }
+}
+.page-footer{
+    color:white;
+} 
