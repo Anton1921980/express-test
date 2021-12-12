@@ -1,7 +1,31 @@
 @import "~bootstrap/scss/bootstrap";
-body{
+
+// @import "../node_modules/bootstrap/scss/functions";
+
+// $bs-light-rgb: 250,250,250;
+
+body {
     box-sizing: border-box;
 }
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin : 0;
+    padding: 0;
+}
+
 h1 {
     font-weight: 800 !important;
     font-size  : 56px !important;
@@ -11,14 +35,14 @@ h2 {
     color      : #018FDE;
     font-weight: 800 !important;
     font-size  : 28px !important;
-
 }
 
 li {
     list-style: none;
 }
 
-.navbar-light .navbar-nav .nav-link {
+// .navbar-light .navbar-nav 
+.nav-link {
     color: #8792A7 !important;
 }
 
@@ -30,42 +54,72 @@ li {
     color: #018FDE;
 }
 
-// .nav>.nav-link {}
+.navbar-light .navbar-nav .nav-link.active // ,.navbar-light .navbar-nav .show>.nav-link
 
-.navbar-light .navbar-nav .nav-link.active,
-.navbar-light .navbar-nav .show>.nav-link {
+    {
     color: black !important;
 }
 
-// .navbar-nav:first-child {
-//     color: red !important
-// }
+#responsive-navbar-nav {
+    text-align: left;
+}
+
+.navbar-toggler-menu {
+    display: none;
+}
+
+.toggle {
+    display: none !important;
+}
+
 
 .dropdown-menu {
     border    : none !important;
     box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.04);
 
     & a {
-        color: grey;
+        color      : #8792A7;
+        font-size  : 12px;
+        font-weight: 500;
+
     }
 }
 
+.dropdown-toggle {
+    background: right 5% top 48% url(./img/coolicon_grey.png) no-repeat;
 
-.call{
-    position  : relative;
+    &::after {
+        opacity: 0 !important;
+    }
+
+    & a {
+        font-weight: 600;
+        font-size  : 26px;
+    }
 }
+
+.show>#collasible-nav-dropdown {
+    color     : black !important;
+    background: right 5% top 48% url(./img/coolicon_up.png) no-repeat;
+    ;
+}
+
+
+.call {
+    position: relative;
+}
+
+
 .call_us {
-    width     : 95px;
-    height    : 40px;
-    border    : 1px solid #121212;
-    box-sizing: border-box;
-    position  : relative;
+    width           : 95px;
+    height          : 40px;
+    border          : 1px solid #121212;
+    box-sizing      : border-box;
+    position        : relative;
     background-color: white;
-
-    
-  
 }
-.us{
+
+.us {
     position  : absolute;
     left      : -4.04%;
     top       : 9.09%;
@@ -75,7 +129,15 @@ li {
     border    : 1px solid #121212;
     box-sizing: border-box;
 }
-.consultation {
+
+.call_us.active>span,
+.send_to.active,
+.consultation_free.active {
+    color: #8792A7 !important;
+}
+
+.consultation_free,
+.send_to {
     font-size  : 14px;
     font-weight: 500;
     width      : 211px;
@@ -84,25 +146,32 @@ li {
     box-sizing : border-box;
     position   : relative;
     background : #121212;
-
-
-    & span {
-        color: white;
-    }
-
-    & div {
-        position  : absolute;
-        right     : 0%;
-        left      : -1.86%;
-        top       : 9.09%;
-        bottom    : -9.09%;
-        border    : 1px solid #121212;
-        box-sizing: border-box;
-    }
+    color      : white !important;
 }
 
-.call_us.active>span {
-    color: #8792A7;
+.send,
+.consultation {
+    position: relative;
+}
+
+.to {
+    position  : absolute;
+    right     : 0%;
+    left      : -1.86%;
+    top       : 9.09%;
+    bottom    : -9.09%;
+    border    : 1px solid #121212;
+    box-sizing: border-box;
+}
+
+.free {
+    position  : absolute;
+    right     : 0%;
+    left      : -0.6%;
+    top       : 9.09%;
+    bottom    : -9.09%;
+    border    : 1px solid #121212;
+    box-sizing: border-box;
 }
 
 .form-control {
@@ -114,11 +183,9 @@ li {
     border-radius: 0 !important;
 
     &:focus {
-        box-shadow: none !important;
-        background: none !important;
-
+        box-shadow  : none !important;
+        background  : none !important;
         border-color: #8792A7 !important;
-
     }
 }
 
@@ -134,6 +201,173 @@ li {
         box-shadow: 0 0 0 0 !important;
     }
 }
-.page-footer{
-    color:white;
-} 
+
+.page-footer {
+    color           : white;
+    height          : 360px;
+    background-color: #121212;
+
+    & p,
+    li {
+        color      : #DBDBDB;
+        font-size  : 14px;
+        font-weight: 500;
+    }
+
+    & .long-p {
+        width: 250px;
+        text-align: left;
+    }
+
+    & h5 {
+        margin-bottom: 25px;
+        margin-top   : 76px;
+        font-size    : 20px;
+        font-weight  : 600;
+    }
+}
+
+.corner-left {
+    position: relative;
+    right   : 430px;
+}
+
+.corner-right {
+    position: relative;
+    left    : 430px;
+}
+
+
+
+@media (max-width: 768px) {
+    .bg-light {
+        background-color: white !important;
+    }
+
+    .collapsed>.navbar-toggler-icon {
+        position        : absolute;
+        right           : 130px !important;
+        top             : 14px !important;
+        background-image: url('./img/menu.png') !important;
+    }
+
+    .navbar-toggler-icon {
+        position        : absolute;
+        right           : 130px !important;
+        top             : 14px !important;
+        background-image: url('./img/close.png') !important;
+    }
+
+    .navbar-toggler-menu {
+        display : block;
+        position: absolute;
+        top     : 15px;
+        right   : 72px;
+    }
+
+    .call {
+        display: none !important;
+    }
+
+    .toggle {
+        display : block !important;
+        position: absolute;
+        top     : 5px;
+        right   : 180px;
+    }
+
+    .dropdown-menu {
+
+        & a {
+            font-size  : 20px;
+            font-weight: 600 !important;
+            color      : #3D3D3D;
+        }
+    }
+
+    .show>#collasible-nav-dropdown {
+        color     : #018FDE !important;
+        background: left 25% top 48% url(./img/coolicon_blue.png) no-repeat;
+    }
+
+    .active .nav-link>span {
+        color: #018FDE;
+    }
+
+    .nav-item .show .dropdown+.nav-link>span {
+        color: #121212 !important;
+    }
+
+    .show {
+        & .navbar-nav {
+            margin-top: 100px;
+        }
+
+        & {
+            .nav-link {
+                font-size  : 26px;
+                font-weight: 600;
+                color      : black !important;
+            }
+        }
+
+        & .dropdown-toggle {
+            background: left 25% top 48% url(./img/coolicon.png) no-repeat;
+
+            &::after {
+                display: none !important;
+            }
+
+            & a {
+                font-weight: 600;
+                font-size  : 26px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .navbar-toggler-menu {
+        display: none;
+    }
+
+    .nav-link>span {
+        color: #121212 !important;
+    }
+
+    .toggle,
+    .call {
+        display: none !important;
+    }
+
+    .show {
+        & .dropdown-toggle {
+            background: left 44% top 54% url(./img/coolicon.png) no-repeat;
+
+            &::after {
+                display: none !important;
+            }
+
+            & a {
+                font-weight: 600;
+                font-size  : 18px;
+            }
+        }
+
+        & .nav-link {
+            font-size  : 20px;
+            font-weight: 600;
+            color      : #121212 !important;
+        }
+    }
+
+    .show>#collasible-nav-dropdown {
+        color     : #121212 !important;
+        background: left 44% top 54% url(./img/coolicon_phone_up.png) no-repeat;
+    }
+
+    .active .nav-link>span {
+        color: #121212;
+    }
+}

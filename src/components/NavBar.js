@@ -8,17 +8,22 @@ const NavBar = () =>
 {
     const [ border, setBorder ] = useState( 'black' );
     const [ clicked, setClicked ] = useState( false );
-    const [ color, setColor ] = useState( 'black' );
+
+    const [ mobile, setMobile ] = useState( false );
+    const [ color, setColor ] = useState( '#018FDE' );
 
     const styles = {
         borderColor: border,
     }
+    const styleHome = {
+        color: mobile && color,
+    }
 
-    // const ref = useRef(null);
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
                 <Container>
+                    {/* вешаем стили которые будем менять в мобильной версии */ }
                     <Navbar.Brand href="#home">
                         {/* Express */ }
                         <svg width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,42 +37,63 @@ const NavBar = () =>
                         </svg>
 
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    {/* onclick usestate убедились  мобильное меню включено*/ }
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"
+                        onClick={ () => { setMobile( true ) } }
+                    />
                     <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-center'>
                         <Nav >
-                            <Nav.Link href="#features"
-                            // style={ styles2 }
-                            // onClick={ () => setColor( "#018FDE" )}
-                            >
-                                <span> Home</span>
-
+                            <Nav.Link href="#home">
+                                <span
+                                    style={ styleHome }
+                                >
+                                    Home
+                                </span>
                             </Nav.Link>
-                            <Nav.Link href="#pricing">About</Nav.Link>
-                            <NavDropdown title="Our services" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                {/* <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                            <NavDropdown.Divider />
+                            <Nav.Link href="#about">About us</Nav.Link>
+                            <NavDropdown.Divider />
+                            {/* onclick убедились что открыли и mobile=true и меняем цвет Home для моб версии*/ }
+                            <NavDropdown title="Our services" id="collasible-nav-dropdown"
+                                onClick={ () => { mobile === true && setColor( 'black' ) } }
+                            >
+                                <NavDropdown.Item href="#action/3.1">Lorem ipsum</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Lorem ipsum</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Lorem ipsum</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Lorem ipsum</NavDropdown.Item>
                             </NavDropdown>
+                            <NavDropdown.Divider />
+                            <Nav.Link href="#contact">Contact us</Nav.Link>
+                            <NavDropdown.Divider />
                         </Nav>
 
                     </Navbar.Collapse>
+                    <div className='navbar-toggler-menu'>Menu</div>
                     <Nav className='call'>
-                    <div className='us'
+                        <div className='us'
                             style={ styles }
-                           
                         >
                         </div>
                         <Nav.Link className='call_us' href="#callus"
-                         onClick={ () => { setBorder( 'transparent' ); setClicked( true ) } }
-                         onMouseEnter={ () => setBorder( 'transparent') }
-                         onMouseLeave={ () => !clicked && setBorder( 'black') }
+                            onClick={ () => { setBorder( 'transparent' ); setClicked( true ) } }
+                            onMouseEnter={ () => setBorder( 'transparent' ) }
+                            onMouseLeave={ () => !clicked && setBorder( 'black' ) }
                         >
-                            Call us
+                            <span>Call us</span>
                         </Nav.Link>
-
-                       
+                    </Nav>
+                    <Nav className='toggle'>
+                        <div className='us'
+                            style={ styles }
+                        >
+                        </div>
+                        <Nav.Link className='call_us' href="#callus"
+                            onClick={ () => { setBorder( 'transparent' ); setClicked( true ) } }
+                            onMouseEnter={ () => setBorder( 'transparent' ) }
+                            onMouseLeave={ () => !clicked && setBorder( 'black' ) }
+                        >
+                            <span>Call us</span>
+                        </Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

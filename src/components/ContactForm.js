@@ -9,12 +9,16 @@ const ContactForm = () =>
     const [ visible, setVisible ] = useState( 0 )
     const [ visible2, setVisible2 ] = useState( 0 )
     const [ visible3, setVisible3 ] = useState( 0 )
+
     const [ placeHolderFirst, setPlaceHolderFirst ] = useState( 'First Name' )
     const [ placeHolderLast, setPlaceHolderLast ] = useState( 'Last Name' )
     const [ placeHolderEmail, setPlaceHolderEmail ] = useState( 'Enter email' )
 
+    const [ border, setBorder ] = useState( 'black' );
+    const [ clicked, setClicked ] = useState( false );
+
+
     const styles = {
-        opacity: visible,
         position: 'absolute',
         bottom: 30,
         left: 16,
@@ -25,45 +29,30 @@ const ContactForm = () =>
         padding: 4,
         background: 'white',
         boxSizing: 'content-box'
+    }
+    const styles1 = {
+        opacity: visible,
     }
     const styles2 = {
         opacity: visible2,
-        position: 'absolute',
-        bottom: 30,
-        left: 16,
-        color: '#8792A7',
-        fontSize: 10,
-        width: 56,
-        height: 12,
-        padding: 4,
-        background: 'white',
-        boxSizing: 'content-box'
     }
     const styles3 = {
         opacity: visible3,
-        position: 'absolute',
-        bottom: 30,
-        left: 16,
-        color: '#8792A7',
-        fontSize: 10,
-        width: 58,
-        height: 12,
-        padding: 4,
-        background: 'white',
-        boxSizing: 'content-box'
+    }
+    const styles4 = {
+        borderColor: border,
+        width: 211,
+        height: 40,
     }
     return (
-        <>
-            <h2>Contact  <i className="icon icon-Express" style={ { fontSize: 25 } }></i> <span style={ { color: 'black' } }>Us</span></h2>
+        <div style={ { marginTop: 170 } }>
+            <h2>Contact <span style={ { color: 'black' } }>Us</span></h2>
             <Container fluid className=' mt-5 d-flex'>
-
-                <Col className='d-flex justify-content-center mt-3' style={ { width: '1088px', height: '523px' } }>
-
+                <Col className='d-flex justify-content-center mt-3 form-container' style={ { width: '1088px', height: '523px' } }>                
                     <Form style={ { width: 456 } }>
-
                         <Row className="mb-3" style={ { width: 456 } }>
                             <Form.Group as={ Col } controlId="formGridName" style={ { position: 'relative' } }>
-                                <div style={ styles }>First Name</div>
+                                <div style={ { ...styles, ...styles1 } }>First Name</div>
                                 <Form.Control
                                     placeholder={ placeHolderFirst }
                                     onClick={ () => { setVisible( 1 ); setPlaceHolderFirst( 'Enter text' ) } }
@@ -72,7 +61,7 @@ const ContactForm = () =>
                             </Form.Group>
 
                             <Form.Group as={ Col } controlId="formGridLastName" style={ { position: 'relative' } }>
-                                <div style={ styles2 }>Last Name</div>
+                                <div style={ { ...styles, ...styles2 } }>Last Name</div>
                                 <Form.Control
                                     placeholder={ placeHolderLast }
                                     onClick={ () => { setVisible2( 1 ); setPlaceHolderLast( 'Enter text' ) } }
@@ -82,7 +71,6 @@ const ContactForm = () =>
                         </Row>
 
                         <Row className="mb-3" style={ { width: 456 } }>
-
                             <Col className="my-1 col-6">
                                 <Form.Label
                                     className="me-sm-2"
@@ -100,7 +88,7 @@ const ContactForm = () =>
                             </Col>
                             <Col className="my-1 col-6">
                                 <Form.Group as={ Col } controlId="formGridLastName" style={ { position: 'relative' } }>
-                                    <div style={ styles3 }>Enter email</div>
+                                    <div style={ { ...styles, ...styles3 } }>Enter email</div>
                                     <Form.Control
                                         placeholder={ placeHolderEmail }
                                         onClick={ () => { setVisible3( 1 ); setPlaceHolderEmail( 'email' ) } }
@@ -116,30 +104,25 @@ const ContactForm = () =>
                                     as="textarea" rows={ 3 } />
                             </Form.Group>
                         </Row>
-
                         <Col className='col-md-12 d-flex justify-content-center'>
-                            <Nav.Link className='consultation' href="#consultation"
-                            >
-                                <span>Send</span>
-                                {/* добавить див или стиль и его стилизовать */ }
-                                <div className='us'
-                                // style={ styles }
-                                // onClick={ () => { setBorderOpacity( "0" ); setClicked( true ) } }
-                                // onMouseEnter={ () => setBorderOpacity( "0" ) }
-                                // onMouseLeave={ () => !clicked && setBorderOpacity( "1" ) }
+                            <Nav className='send'>
+                                <div className='to'
+                                    style={ styles4 }
                                 >
                                 </div>
-                            </Nav.Link>
+                                <Nav.Link className='send_to' href="#send"
+                                    onClick={ () => { setBorder( 'transparent' ); setClicked( true ) } }
+                                    onMouseEnter={ () => setBorder( 'transparent' ) }
+                                    onMouseLeave={ () => !clicked && setBorder( 'black' ) }
+                                >
+                                    Send
+                                </Nav.Link>
+                            </Nav>
                         </Col>
-                        {/* <Button variant="primary" type="submit">
-                            Submit
-                        </Button> */}
-
                     </Form>
-
                 </Col>
             </Container >
-        </>
+        </div>
     );
 };
 
