@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
 
 const Main = () =>
@@ -6,6 +6,9 @@ const Main = () =>
 
     const [ border, setBorder ] = useState( 'black' );
     const [ clicked, setClicked ] = useState( false );
+
+    const myRef = useRef(null)
+    const executeScroll = () => myRef.current.scrollIntoView()  
 
     const styles4 = {
         borderColor: border,
@@ -68,7 +71,7 @@ const Main = () =>
                         </svg>
                     </div>
 
-                    <h1 className='mt-5' style={ { width: 864, height: 160 } }>
+                    <h1  onClick={executeScroll} className='mt-5' style={ { width: 864, height: 160 } }>
                         Lorem ipsum set
                         <div>ammet test-test</div>
                     </h1>
@@ -81,7 +84,9 @@ const Main = () =>
                     <Row>
                         <Col className='col-md-6 d-flex justify-content-end'>
                             <div >
-                                <div style={ { textAlign: 'start' } }>We currently take cases</div>
+                                <div style={ { textAlign: 'start' } }
+                                ref={myRef}
+                                >We currently take cases</div>
                                 <div>that are $10,000 US and up</div>
                             </div>
 
@@ -100,7 +105,7 @@ const Main = () =>
                                     Get a free consultation
                                 </Nav.Link>
                             </Nav>
-                        </Col>
+                        </Col >
                         <div className='corner-right'>
                             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10 0L10 10L0 10" stroke="#121212" />

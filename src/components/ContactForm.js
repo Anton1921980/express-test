@@ -4,7 +4,7 @@ import '../fonts/Vector/vector.ttf';
 
 
 
-const ContactForm = () =>
+const ContactForm = (props) =>
 {
     const [ visible, setVisible ] = useState( 0 )
     const [ visible2, setVisible2 ] = useState( 0 )
@@ -46,7 +46,7 @@ const ContactForm = () =>
     }
     return (
         <div style={ { marginTop: 170 } }>
-            <h2>Contact <span style={ { color: 'black' } }>Us</span></h2>
+            <h2  ref={props.myRef}>Contact <span style={ { color: 'black' } }>Us</span></h2>
             <Container fluid className=' mt-5 d-flex'>
                 <Col className='d-flex justify-content-center mt-3 form-container' style={ { width: '1088px', height: '523px' } }>                
                     <Form style={ { width: 456 } }>

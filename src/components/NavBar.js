@@ -1,16 +1,22 @@
 import React from 'react';
 import { Container, Form, Nav, Navbar, NavDropdown, Button, FormControl, Offcanvas } from "react-bootstrap";
 import { useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
-const NavBar = () =>
+const NavBar = ( props ) =>
 {
+
+
+
     const [ border, setBorder ] = useState( 'black' );
     const [ clicked, setClicked ] = useState( false );
 
     const [ mobile, setMobile ] = useState( false );
     const [ color, setColor ] = useState( '#018FDE' );
+
+
 
     const styles = {
         borderColor: border,
@@ -24,7 +30,7 @@ const NavBar = () =>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
                 <Container>
                     {/* вешаем стили которые будем менять в мобильной версии */ }
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/home">
                         {/* Express */ }
                         <svg width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.54998 21.0819H11.6946V25.6873H0V0H11.6946V4.52605H5.54998V10.5608H11.2982V14.928H5.54998V21.0819Z" fill="#121212" />
@@ -42,28 +48,28 @@ const NavBar = () =>
                         onClick={ () => { setMobile( true ) } }
                     />
                     <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-center'>
-                        <Nav >
-                            <Nav.Link href="#home">
+                        <Nav>
+                            <NavLink to='/' exact={true} className='nav-link' >
                                 <span
                                     style={ styleHome }
                                 >
                                     Home
                                 </span>
-                            </Nav.Link>
+                            </NavLink>
                             <NavDropdown.Divider />
-                            <Nav.Link href="#about">About us</Nav.Link>
+                            <NavLink to='/about' exact={true} className='nav-link'>About us</NavLink>
                             <NavDropdown.Divider />
                             {/* onclick убедились что открыли и mobile=true и меняем цвет Home для моб версии*/ }
                             <NavDropdown title="Our services" id="collasible-nav-dropdown"
                                 onClick={ () => { mobile === true && setColor( 'black' ) } }
                             >
-                                <NavDropdown.Item href="#action/3.1">Lorem ipsum</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Lorem ipsum</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Lorem ipsum</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">Lorem ipsum</NavDropdown.Item>
+                                <NavDropdown.Item><NavLink className='nav-link' to='/lorem'>Lorem ipsum</NavLink></NavDropdown.Item>
+                                <NavDropdown.Item><NavLink className='nav-link' to='/lorem'>Lorem ipsum</NavLink></NavDropdown.Item>
+                                <NavDropdown.Item><NavLink className='nav-link' to='/lorem'>Lorem ipsum</NavLink></NavDropdown.Item>
+                                <NavDropdown.Item><NavLink className='nav-link' to='/lorem'>Lorem ipsum</NavLink></NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown.Divider />
-                            <Nav.Link href="#contact">Contact us</Nav.Link>
+                            <Nav.Link href="#contact" onClick={ props.executeScroll }>Contact us</Nav.Link>
                             <NavDropdown.Divider />
                         </Nav>
 
@@ -74,7 +80,7 @@ const NavBar = () =>
                             style={ styles }
                         >
                         </div>
-                        <Nav.Link className='call_us' href="#callus"
+                        <Nav.Link exact={true} className='call_us' href="#callus"
                             onClick={ () => { setBorder( 'transparent' ); setClicked( true ) } }
                             onMouseEnter={ () => setBorder( 'transparent' ) }
                             onMouseLeave={ () => !clicked && setBorder( 'black' ) }
