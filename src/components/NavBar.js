@@ -7,16 +7,11 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = ( props ) =>
 {
-
-
-
     const [ border, setBorder ] = useState( 'black' );
     const [ clicked, setClicked ] = useState( false );
 
     const [ mobile, setMobile ] = useState( false );
     const [ color, setColor ] = useState( '#018FDE' );
-
-
 
     const styles = {
         borderColor: border,
@@ -28,8 +23,7 @@ const NavBar = ( props ) =>
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
-                <Container>
-                    {/* вешаем стили которые будем менять в мобильной версии */ }
+                <Container>                  
                     <Navbar.Brand href="/home">
                         {/* Express */ }
                         <svg width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,8 +36,7 @@ const NavBar = ( props ) =>
                             <path d="M105.084 13.5385C108.361 13.5385 110 15.2854 110 18.7792V20.8437C110 24.3375 108.361 26.0844 105.084 26.0844H100.684C97.4068 26.0844 95.7682 24.3375 95.7682 20.8437V19.6129H100.684V21.3598C100.684 21.5715 100.75 21.7568 100.882 21.9156C101.041 22.0744 101.226 22.1538 101.437 22.1538H104.688C104.899 22.1538 105.071 22.0744 105.203 21.9156C105.362 21.7568 105.441 21.5715 105.441 21.3598V18.9777C105.441 18.7659 105.362 18.5806 105.203 18.4218C105.071 18.263 104.899 18.1836 104.688 18.1836H100.605C97.3275 18.1836 95.6889 16.4367 95.6889 12.9429V11.1563C95.6889 7.66253 97.3275 5.91563 100.605 5.91563H104.767C108.044 5.91563 109.683 7.66253 109.683 11.1563V11.871H104.767V10.6402C104.767 10.4285 104.688 10.2432 104.529 10.0844C104.397 9.92556 104.225 9.84616 104.014 9.84616H101.001C100.79 9.84616 100.605 9.92556 100.446 10.0844C100.314 10.2432 100.248 10.4285 100.248 10.6402V12.7444C100.248 12.9562 100.314 13.1414 100.446 13.3002C100.605 13.4591 100.79 13.5385 101.001 13.5385H105.084Z" fill="#121212" />
                         </svg>
 
-                    </Navbar.Brand>
-                    {/* onclick usestate убедились  мобильное меню включено*/ }
+                    </Navbar.Brand>                 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"
                         onClick={ () => { setMobile( true ) } }
                     />
@@ -58,8 +51,7 @@ const NavBar = ( props ) =>
                             </NavLink>
                             <NavDropdown.Divider />
                             <NavLink to='/about' exact={true} className='nav-link'>About us</NavLink>
-                            <NavDropdown.Divider />
-                            {/* onclick убедились что открыли и mobile=true и меняем цвет Home для моб версии*/ }
+                            <NavDropdown.Divider />                         
                             <NavDropdown title="Our services" id="collasible-nav-dropdown"
                                 onClick={ () => { mobile === true && setColor( 'black' ) } }
                             >
