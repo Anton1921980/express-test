@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/express-test/static/css/main.ac15be5c.chunk.css",
+    "main.js": "/express-test/static/js/main.759fd83d.chunk.js",
+    "main.js.map": "/express-test/static/js/main.759fd83d.chunk.js.map",
+    "runtime-main.js": "/express-test/static/js/runtime-main.52b82513.js",
+    "runtime-main.js.map": "/express-test/static/js/runtime-main.52b82513.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/express-test/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.270d03f9.chunk.js": "/express-test/static/js/2.270d03f9.chunk.js",
+    "static/js/2.270d03f9.chunk.js.map": "/express-test/static/js/2.270d03f9.chunk.js.map",
+    "static/js/3.5182a5d7.chunk.js": "/express-test/static/js/3.5182a5d7.chunk.js",
+    "static/js/3.5182a5d7.chunk.js.map": "/express-test/static/js/3.5182a5d7.chunk.js.map",
+    "index.html": "/express-test/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/express-test/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.ac15be5c.chunk.css.map": "/express-test/static/css/main.ac15be5c.chunk.css.map",
+    "static/js/2.270d03f9.chunk.js.LICENSE.txt": "/express-test/static/js/2.270d03f9.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/express-test/static/media/Montserrat-Regular.3cd78665.ttf",
+    "static/media/vector.4d13ad67.ttf": "/express-test/static/media/vector.4d13ad67.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52b82513.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.270d03f9.chunk.js",
+    "static/css/main.ac15be5c.chunk.css",
+    "static/js/main.759fd83d.chunk.js"
+  ]
+}
